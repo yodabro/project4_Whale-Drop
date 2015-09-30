@@ -1,0 +1,133 @@
+<main id="page-top" data-spy="scroll" data-target=".navbar-fixed-top" ng-controller="whaleDropController as whale">
+
+  <% if (user) { %>
+    <script>id = <%= user.soundcloudId %>;</script>
+    <div class="hideThis"><%= user.soundcloudId %></div>
+  <% } %>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+          <i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand page-scroll" href="#page-top">
+          <i class="fa fa-play-circle"></i>
+          <span class="light" id="boom">Begin The <i class="thing" id="whity">|</i>Drop<i class="thing" id="whity">|</i></span>
+        </a>
+      </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+        <div class="hover">
+        <ul class="nav navbar-nav">
+          <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+<li class="hidden">
+    <a href="#page-top"></a>
+  </li>
+<li>
+    <a ng-click="whale.tracks()" id="boom">The <i class="thing" id="whity">|</i>Tracks<i class="thing" id="whity">|</i></a>
+  </li>
+<li>
+    <a ng-click="whale.playlist()" id="boom">The <i class="thing" id="whity">|</i>Playlists<i class="thing" id="whity">|</i></a>
+  </li>
+<li>
+    <a ng-hide="loggedIn" href="/auth/soundcloud" id="boom">The <i class="thing" id="whity">|</i>Login<i class="thing" id="whity">|</i></a>
+    <a ng-hide="!loggedIn" ng-click="loggedIn = !loggedIn" id="boom" href="/logout">The <i class="thing" id="whity">|</i>Logout<i class="thing" id="whity">|</i></a>
+  </li>
+  <li>
+      <a href="https://github.com/Bran99/whaledrop" id="boom">The <i class="thing" id="whity">|</i>GIT<i class="thing" id="whity">|</i></a>
+    </li>
+
+        </ul>
+      </div>
+<!-- /.navbar-collapse -->
+    </div>
+<!-- /.container -->
+  </nav>
+
+<!-- Intro Header -->
+  <header class="intro" class="behindOtherThings">
+  <video class="video-bg" autoplay muted loop>  <!-- /video -->
+   <source src="/video-bg/1.mp4" type="video/mp4">
+  </video>
+    <div class="intro-body">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <% if (!user) { %>
+              <!-- <h1 class="brand-heading">Whale/DЯop</h1> -->
+              <img class="whale" src="img/logo.png" alt="">
+              <p class="intro-text">Melodies you love, dropped by The <i class="thing">|</i>Whale<i class="thing">|</i><br></p>
+              <a href="/auth/soundcloud" ng-hide="loggedIn" class="sign">Sign in</a>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- TRACKS CONTAINER -->
+  <div ng-hide="whale.hideTracks" class="audioPlayer">
+    <div ng-repeat="(key, value) in songUrls" id="songsGoHere">
+      <iframe width="100%"
+              height="100"
+              scrolling="no"
+              frameborder="no"
+              ng-src="{{getAudioUrl(value)}}"></iframe>
+      <a class="butt" ng-click="whale.editTrack(key)">Crop the Song<i class="zero"></i></a>
+    </div>
+  </div>
+
+  <!-- CROP CONTAINER -->
+  <div ng-hide="whale.hideEdit" class="waveformModal sample-container">
+    <div class="songTitle">{{whale.currentTitle}}</div>
+    <div id="left-cut"></div>
+    <div id="right-cut"></div>
+    <img ng-src="{{getAudioUrl(whale.waveForm)}}" class="waveform"/>
+    <!-- SAMPLING -->
+    <div id="sample-tool"
+         ng-mousemove="whale.updateSampleSize($event)">
+      <div id="left-divider"
+           class="play-bar"
+           ng-mousedown="whale.toggleDragTarget($event, 'left-divider')"></div>
+      <div id="right-divider"
+           ng-mousedown="whale.toggleDragTarget($event, 'right-divider')"></div>
+    </div>
+    <div class="butt" ng-click="whale.createCrop()">
+      Crop
+      <i class="zero"></i>
+    </div>
+  </div>
+
+<!-- PLAYLIST CONTAINER -->
+  <div ng-hide="whale.hidePlaylist" class="playlist">
+    <div ng-repeat="(key, value) in whale.currentPlaylist" class="songs">
+      <img ng-src="{{whale.currentSongImgs[key]}}" class="vroom"/>
+      <div class="playlistSongTitle">{{whale.currentSongTitles[key]}}</div>
+      <audio ng-attr-id="{{whale.currentSongUrls[key]._id}}"
+             data-start="{{value.start}}"
+             data-end="{{value.end}}"
+             controls
+             preload="auto"
+             ng-click="whale.playlistPlay($event)"
+             class="muzon">
+        <p>Your browser does not support the audio element</p>
+      </audio>
+      <a class="butt deleteThis" ng-click="deleteThis(key)">Delete<i class="zero"></i></a>
+    </div>
+  </div>
+
+<!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p class="b"><a class="git" href="https://github.com/bran99"><i class="fa fa-github-square"></a></i><a href="https://www.linkedin.com/in/brandonjgoodman">   Brandon Goodman</a></p>
+      <p class="d"><a class="git" href="https://www.linkedin.com/in/dmitriybodan">Dmitriy Bodan    </a><a href="https://github.com/yodabro"><i class="fa fa-github-square"></a></i></p>
+      <p>Whale/Drop &reg; 2015</p>
+    </div>
+  </footer>
+
+<!-- Custom Theme JavaScript -->
+  <script src="/scripts/grayscale.js"></script>
+
+</main>

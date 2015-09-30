@@ -1,0 +1,413 @@
+.hideThis {
+ display: none;
+}
+
+.showThis {
+ display: inherit;
+}
+
+.container{
+ list-style: none;
+ width: 80%;
+}
+.video-bg{
+ position: absolute;
+ right: 0;
+ bottom: 0;
+ width: auto;
+ min-width: 100%;
+ height: auto;
+ min-height: 100%;
+ z-index: 0;
+ background: transparent url(video-bg/1.mp4) repeat;
+ background-size: cover;
+}
+
+footer {
+ /* position relative is breaking it */
+ position:relative;
+ display: block;
+ width: 100%;
+ bottom: -5%;
+ height: 6.250em;
+ background: rgba(0, 0, 0, 0.45);
+ font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#songsGoHere {
+ overflow-y: scroll;
+}
+
+.audioPlayer {
+ z-index: 999;
+ position: absolute;
+ padding-left: 15%;
+ padding-right: 15%;
+ width: 100%;
+ height: 37%;
+ overflow: scroll;
+ bottom: 30%;
+ text-align: center;
+}
+
+.behindOtherThings {
+ z-index: 1;
+}
+
+.waveformModal {
+ width: 100%;
+ height: 60%;
+ background: rgba(0, 0, 0, .45);
+ overflow: hidden;
+}
+
+.hover:hover{
+  cursor: pointer;
+}
+
+.waveformModal {
+  width: 100%;
+  height: 50%;
+  background: rgba(0, 0, 0, .45);
+  overflow: hidden;
+  position: absolute;
+  bottom: 30%;
+}
+
+.waveform, #left-cut, #right-cut {
+  width: 80%;
+  height: 30%;
+  display: block;
+  margin: 0 auto;
+  opacity: 1;
+}
+
+.songTitle {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#sample-tool {
+  position: absolute;
+  background: rgba(0, 0, 0, .45);
+  width: 80%;
+  height: 30%;
+  margin: 0 auto;
+  bottom: 64.3%;
+  left: 10%;
+}
+
+#left-cut{
+  position: absolute;
+  height: 30%;
+  background:red;
+  left: 10%;
+  width: 0;
+  bottom: 64.5%;
+  opacity: .5;
+}
+
+#right-cut {
+  position: absolute;
+  height: 30%;
+  background:red;
+  right: 9.9%;
+  width: 0;
+  bottom: 64.5%;
+  opacity: .5;
+}
+
+#left-divider, #right-divider {
+  width: 0;
+  height: 100%;
+  border: 1px solid blue;
+  position: absolute;
+  display: inline-block;
+  bottom: 0;
+}
+
+#left-divider:hover {
+  border: 4px solid pink;
+  cursor: pointer;
+}
+
+#right-divider:hover {
+  border: 4px solid pink;
+  cursor: pointer;
+}
+
+/* #keep {
+  display: inline;
+  width: 100%;
+} */
+
+/*button*/
+.butt {
+  /*  styling */
+  margin-bottom: -2em; /*button position beetwen the player windows*/
+  margin-top: 1.5em; /*button position beetwen the player windows*/
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 3px;
+  color: #B7DE17;
+  border: 2px solid ;
+  padding: 5px;
+  /*  centering */
+  position: relative;
+  text-align: center;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-transition: background 0.15s ease-in-out;
+  -moz-transition: background 0.15s ease-in-out;
+  -ms-transition: background 0.15s ease-in-out;
+  -o-transition: background 0.15s ease-in-out;
+  transition: background 0.15s ease-in-out;
+}
+.butt:hover {
+  background: rgba(23, 115, 126, 0.8);
+  cursor: pointer;
+}
+
+.zero {
+  /*   positionig  */
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: 0;
+
+  /*   gradient   */
+  background: -moz-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.03) 1%, rgba(255, 255, 255, 0.6) 30%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0.85) 70%, rgba(255, 255, 255, 0.85) 71%, rgba(255, 255, 255, 0) 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(1%, rgba(255, 255, 255, 0.03)), color-stop(30%, rgba(255, 255, 255, 0.85)), color-stop(50%, rgba(255, 255, 255, 0.85)), color-stop(70%, rgba(255, 255, 255, 0.85)), color-stop(71%, rgba(255, 255, 255, 0.85)), color-stop(100%, rgba(255, 255, 255, 0)));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.03) 1%, rgba(255, 255, 255, 0.6) 30%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0.85) 70%, rgba(255, 255, 255, 0.85) 71%, rgba(255, 255, 255, 0) 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.03) 1%, rgba(255, 255, 255, 0.6) 30%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0.85) 70%, rgba(255, 255, 255, 0.85) 71%, rgba(255, 255, 255, 0) 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.03) 1%, rgba(255, 255, 255, 0.6) 30%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0.85) 70%, rgba(255, 255, 255, 0.85) 71%, rgba(255, 255, 255, 0) 100%);
+  /* IE10+ */
+  background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.03) 1%, rgba(255, 255, 255, 0.6) 30%, rgba(255, 255, 255, 0.85) 50%, rgba(255, 255, 255, 0.85) 70%, rgba(255, 255, 255, 0.85) 71%, rgba(255, 255, 255, 0) 100%);
+
+  /*  formin' the bright element, play around with the width, skew and gradient to get different effects and awesome options  */
+  width: 15%;
+  height: 100%;
+  transform: skew(-10deg, 0deg);
+  -webkit-transform: skew(-10deg, 0deg);
+  -moz-transform: skew(-10deg, 0deg);
+  -ms-transform: skew(-10deg, 0deg);
+  -o-transform: skew(-10deg, 0deg);
+
+  /*  animating it  */
+
+  animation: move 2s;
+  animation-iteration-count: infinite;
+  animation-delay: 1s;
+  -webkit-animation: move 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-delay: 1s;
+  -moz-transform: skew(-10deg, 0deg);
+  -moz-animation: move 2s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-delay: 1s;
+  -ms-transform: skew(-10deg, 0deg);
+  -ms-animation: move 2s;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-delay: 1s;
+  -o-transform: skew(-10deg, 0deg);
+  -o-animation: move 2s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-delay: 1s;
+}
+
+/* this is madness */
+@keyframes move {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.0;
+  }
+  48% {
+    opacity: 0.2;
+  }
+  80% {
+    opacity: 0.0;
+  }
+  100% {
+    left: 82%;
+  }
+}
+@-webkit-keyframes move {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.0;
+  }
+  48% {
+    opacity: 0.2;
+  }
+  80% {
+    opacity: 0.0;
+  }
+  100% {
+    left: 82%;
+  }
+}
+@-moz-keyframes move {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.0;
+  }
+  48% {
+    opacity: 0.2;
+  }
+  80% {
+    opacity: 0.0;
+  }
+  100% {
+    left: 88%;
+  }
+}
+@-ms-keyframes move {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.0;
+  }
+  48% {
+    opacity: 0.2;
+  }
+  80% {
+    opacity: 0.0;
+  }
+  100% {
+    left: 82%;
+  }
+}
+@-o-keyframes move {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  5% {
+    opacity: 0.0;
+  }
+  48% {
+    opacity: 0.2;
+  }
+  80% {
+    opacity: 0.0;
+  }
+  100% {
+    left: 82%;
+  }
+}
+
+.thing{
+  color: #B7DE17;
+  font-style: normal;
+}
+
+.thing:hover #whity{
+  color:white;
+}
+
+.git:hover{
+  color:purple;
+}
+
+.whale{
+  margin-left: -7em;
+}
+
+.playlist {
+  background-color: rgba(0, 0, 0, 0.45);
+  position: absolute;
+  width: 100%;
+  height: 31.250em;
+  bottom: 5.625em;
+  overflow: scroll;
+}
+
+.songs {
+  background-color: rgba(255, 255, 255, 0.35);
+  height: 20%;
+  margin: 1em;
+}
+
+audio {
+  display: block;
+  margin: auto auto;
+}
+
+.sign {
+font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.intro-text{
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+#boom:hover{
+  color: #B7DE17;
+}
+
+#whity:hover{
+  color:white;
+}
+
+#boom:hover #whity{
+  color:white;
+}
+
+.vroom{
+  position: absolute;
+  height: 20%;
+}
+
+.playlistSongTitle {
+  /*float: right;*/
+  position: absolute;
+  right: 0;
+  padding: 1.5em;
+  font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+.songs{
+  background-image: url("http://i.imgur.com/6viHF19.jpg");
+  background-size: auto;
+}
+
+.muzon{
+  margin-left: 15em;
+  opacity: 0.75;
+  width: 35%;
+}
+
+.deleteThis {
+  display: inline-block;
+  margin-top: 2em;
+  width: 20%;
+  font: inherit;
+  left: 89.5%;
+}
+
+.deleteThis:hover {
+  cursor: pointer;
+}
