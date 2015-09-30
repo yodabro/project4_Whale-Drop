@@ -13,7 +13,7 @@ router.use(passport.session());
 passport.use(new SoundCloudStrategy({
     clientID: process.env.clientID,
     clientSecret: process.env.clientSecret,
-    callbackURL: 'http://localhost:3000/callback',
+    callbackURL: 'http://whale-drop.herokuapp.com/callback',
     display: 'popup'
   },
   function(accessToken, refreshToken, profile, done) {
